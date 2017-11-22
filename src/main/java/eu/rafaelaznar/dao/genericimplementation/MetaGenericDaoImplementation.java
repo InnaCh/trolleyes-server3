@@ -77,7 +77,7 @@ public abstract class MetaGenericDaoImplementation implements MetaDaoInterface {
                         oMeta.setIsId(fieldAnnotation.IsId());
                         oMeta.setIsIdForeignKey(fieldAnnotation.IsIdForeignKey());
                         oMeta.setIsObjForeignKey(fieldAnnotation.IsObjForeignKey());
-                        oMeta.setReferences(fieldAnnotation.References());
+                       // oMeta.setReferences(fieldAnnotation.References());
                         oMeta.setIsForeignKeyDescriptor(fieldAnnotation.IsForeignKeyDescriptor());
                         oMeta.setType(fieldAnnotation.Type());
                         oMeta.setIsRequired(fieldAnnotation.IsRequired());

@@ -47,8 +47,8 @@ public class MetaPropertyGenericBeanHelper {
     private boolean IsIdForeignKey = false;
     @Expose
     private boolean IsObjForeignKey = false;
-    @Expose
-    private String References = "";
+//    @Expose
+//    private String References = "";
     @Expose
     private boolean IsForeignKeyDescriptor = false;
     @Expose
@@ -118,13 +118,13 @@ public class MetaPropertyGenericBeanHelper {
         this.IsObjForeignKey = IsObjForeignKey;
     }
 
-    public String getReferences() {
-        return References;
-    }
-
-    public void setReferences(String References) {
-        this.References = References;
-    }
+//    public String getReferences() {
+//        return References;
+//    }
+//
+//    public void setReferences(String References) {
+//        this.References = References;
+//    }
 
     public boolean isIsForeignKeyDescriptor() {
         return IsForeignKeyDescriptor;

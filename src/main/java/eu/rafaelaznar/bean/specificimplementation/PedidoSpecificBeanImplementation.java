@@ -30,21 +30,70 @@ package eu.rafaelaznar.bean.specificimplementation;
 
 import com.google.gson.annotations.Expose;
 import eu.rafaelaznar.bean.genericimplementation.TableGenericBeanImplementation;
+import eu.rafaelaznar.bean.meta.publicinterface.MetaPropertyBeanInterface;
+import eu.rafaelaznar.helper.EnumHelper;
 import java.util.Date;
 
 public class PedidoSpecificBeanImplementation extends TableGenericBeanImplementation {
 
     @Expose
+    @MetaPropertyBeanInterface(
+            IsId = false,
+            Name = "fecha",
+            ShortName = "fecha",
+            LongName = "Fecha del pedido",
+            Description = "Fecha del pedido",
+            Type = EnumHelper.FieldType.Date,
+            IsRequired = true
+    )
     private Date fecha;
     @Expose
+    @MetaPropertyBeanInterface(
+            IsId = false,
+            Name = "iva",
+            ShortName = "iva",
+            LongName = "Iva",
+            Description = "Iva del producto",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true
+    )
     private int iva;
     @Expose
+    @MetaPropertyBeanInterface(
+            IsId = false,
+            Name = "tiene_iva",
+            ShortName = "iva",
+            LongName = "¿Tiene iva?",
+            Description = "Si tiene iva el producto",
+            Type = EnumHelper.FieldType.Boolean,
+            IsRequired = true
+    )
     private int tiene_iva;
 
     //---
     @Expose(serialize = false)
+    @MetaPropertyBeanInterface(
+            IsId = false,
+            IsIdForeignKey = true,
+            Name = "id_usuario",
+            ShortName = "id_usuario",
+            LongName = "ID del usuario",
+            Description = "ID del usuario",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true
+    )
     private Integer id_usuario = 0;
     @Expose(deserialize = false)
+     @MetaPropertyBeanInterface(
+            IsId = false,
+            IsObjForeignKey = true,
+            Name = "obj_usuario",
+            ShortName = "obj_usuario",
+            LongName = "Expanción del usuario",
+            Description = "Expanción del usuario",
+            Type = EnumHelper.FieldType.Object,
+            IsRequired = true
+    )
     private UsuarioSpecificBeanImplementation obj_usuario = null;
 
     public PedidoSpecificBeanImplementation() {
@@ -153,5 +202,4 @@ public class PedidoSpecificBeanImplementation extends TableGenericBeanImplementa
 //        }
 //        return this;
 //    }
-
 }

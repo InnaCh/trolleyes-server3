@@ -30,16 +30,56 @@ package eu.rafaelaznar.bean.specificimplementation;
 
 import com.google.gson.annotations.Expose;
 import eu.rafaelaznar.bean.genericimplementation.TableGenericBeanImplementation;
+import eu.rafaelaznar.bean.meta.publicinterface.MetaPropertyBeanInterface;
+import eu.rafaelaznar.helper.EnumHelper;
 
 public class ProductoSpecificBeanImplementation extends TableGenericBeanImplementation {
 
     @Expose
+
+    @MetaPropertyBeanInterface(
+            IsId = false,
+            Name = "codigo",
+            ShortName = "cod",
+            LongName = "Código",
+            Description = "Codigo del producto",
+            Type = EnumHelper.FieldType.String,
+            IsRequired = true
+    )
     private String codigo;
     @Expose
+    @MetaPropertyBeanInterface(
+            IsId = false,
+            Name = "descripcion",
+            ShortName = "Descr",
+            LongName = "Descripcion",
+            Description = "Descripcion del producto",
+            Type = EnumHelper.FieldType.String,
+            IsRequired = true
+    )
     private String descripcion;
     @Expose
+    @MetaPropertyBeanInterface(
+            IsId = false,
+            Name = "existencias",
+            ShortName = "exist",
+            LongName = "Existencias",
+            Description = "Existencias de los productos en almcen",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true
+    )
     private int existencias;
+
     @Expose
+    @MetaPropertyBeanInterface(
+            IsId = false,
+            Name = "precio",
+            ShortName = "€",
+            LongName = "Precio",
+            Description = "Precio del producto",
+            Type = EnumHelper.FieldType.Double,
+            IsRequired = true
+    )
     private double precio;
 
     public ProductoSpecificBeanImplementation() {
@@ -48,7 +88,7 @@ public class ProductoSpecificBeanImplementation extends TableGenericBeanImplemen
     public ProductoSpecificBeanImplementation(Integer id) {
         super(id);
     }
-        
+
     public Integer getId() {
         return id;
     }
@@ -128,5 +168,4 @@ public class ProductoSpecificBeanImplementation extends TableGenericBeanImplemen
 //        this.setPrecio(oResultSet.getDouble("precio"));
 //        return this;
 //    }
-
 }

@@ -30,15 +30,47 @@ package eu.rafaelaznar.bean.specificimplementation;
 
 import com.google.gson.annotations.Expose;
 import eu.rafaelaznar.bean.genericimplementation.TableGenericBeanImplementation;
+import eu.rafaelaznar.bean.meta.publicinterface.MetaPropertyBeanInterface;
+import eu.rafaelaznar.helper.EnumHelper;
 
 public class CarritoSpecificBeanImplementation extends TableGenericBeanImplementation {
 
     @Expose
+    @MetaPropertyBeanInterface(
+            IsId = false,
+            Name = "cantidad",
+            ShortName = "cant",
+            LongName = "cantidad",
+            Description = "Cantidad del producto que ha pedido",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true
+    )
     private Integer cantidad;
+
     //--
     @Expose(serialize = false)
+    @MetaPropertyBeanInterface(
+            IsId = false,
+            IsIdForeignKey = true,
+            Name = "id_producto",
+            ShortName = "id_producto",
+            LongName = "ID del producto",
+            Description = "ID del producto",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true
+    )
     private Integer id_producto = 0;
     @Expose(deserialize = false)
+    @MetaPropertyBeanInterface(
+            IsId = false,
+            IsObjForeignKey = true,
+            Name = "obj_producto",
+            ShortName = "obj_producto",
+            LongName = "Expanción del producto",
+            Description = "Expanción del producto",
+            Type = EnumHelper.FieldType.Object,
+            IsRequired = true
+    )
     private ProductoSpecificBeanImplementation obj_producto = null;
 
     public CarritoSpecificBeanImplementation() {
@@ -67,7 +99,5 @@ public class CarritoSpecificBeanImplementation extends TableGenericBeanImplement
     public void setObj_producto(ProductoSpecificBeanImplementation obj_producto) {
         this.obj_producto = obj_producto;
     }
-
-
 
 }

@@ -30,10 +30,21 @@ package eu.rafaelaznar.bean.specificimplementation;
 
 import com.google.gson.annotations.Expose;
 import eu.rafaelaznar.bean.genericimplementation.TableGenericBeanImplementation;
+import eu.rafaelaznar.bean.meta.publicinterface.MetaPropertyBeanInterface;
+import eu.rafaelaznar.helper.EnumHelper;
 
 public class TipousuarioSpecificBeanImplementation extends TableGenericBeanImplementation {
 
     @Expose
+    @MetaPropertyBeanInterface(
+            IsId = false,
+            Name = "descripcion",
+            ShortName = "Descr",
+            LongName = "Descripcion",
+            Description = "Descripcion del tipousuario",
+            Type = EnumHelper.FieldType.String,
+            IsRequired = true
+    )
     private String descripcion;
 
     public TipousuarioSpecificBeanImplementation() {
@@ -75,12 +86,10 @@ public class TipousuarioSpecificBeanImplementation extends TableGenericBeanImple
 //        strPairs += "descripcion=" + EncodingHelper.quotate(descripcion);
 //        return strPairs;
 //    }
-
 //    @Override
 //    public GenericBeanInterface fill(ResultSet oResultSet, Connection pooledConnection, UsuarioSpecificBeanImplementation oPuserBean_security, Integer expand) throws SQLException, Exception {
 //        this.setId(oResultSet.getInt("id"));
 //        this.setDescripcion(oResultSet.getString("descripcion"));
 //        return this;
 //    }
-
 }
